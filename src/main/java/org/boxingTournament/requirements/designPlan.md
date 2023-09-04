@@ -23,7 +23,7 @@
             - tournament level
         - Behavior
             - updating their record
-    - BoxingRecord
+    - FighterRecord
         - Description
             - Hold all the record of each player and the math to update it
         - Attributes

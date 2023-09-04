@@ -1,4 +1,4 @@
-package FightersTest;
+package fightersTest;
 
 import org.boxingTournament.fighter.FightersRecord;
 import org.junit.jupiter.api.Assertions;
