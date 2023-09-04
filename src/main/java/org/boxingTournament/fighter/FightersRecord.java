@@ -31,7 +31,7 @@ public class FightersRecord {
 
     @Override
     public String toString() {
-        return "BoxingRecord{" +
+        return "{" +
                 "wins=" + wins +
                 ", losses=" + losses +
                 ", draws=" + draws +

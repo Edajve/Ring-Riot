@@ -3,30 +3,32 @@ package org.boxingTournament.fighter;
 import org.boxingTournament.enums.TournamentLevel;
 import org.boxingTournament.enums.TournamentStatus;
 
+import java.util.UUID;
+
 public class Fighter {
-    private final int id;
+    private final UUID id;
     private final String fullName;
     private final int lbs;
     private final String height;
-    private FightersRecord record;
+    private final FightersRecord fightersRecord;
     private TournamentLevel tournamentLevel;
     private TournamentStatus tournamentStatus;
 
     public Fighter(
-            int id, String fullName,
-            int lbs, String height,
-            FightersRecord record
+            String fullName,
+            int lbs,
+            String height
     ) {
-        this.id = id;
+        this.id = UUID.randomUUID();
         this.fullName = fullName;
         this.lbs = lbs;
         this.height = height;
-        this.record = record;
+        this.fightersRecord = new FightersRecord();
         this.tournamentLevel = TournamentLevel.ROUND_OF_16;
         this.tournamentStatus = TournamentStatus.ACTIVE;
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -42,12 +44,8 @@ public class Fighter {
         return height;
     }
 
-    public FightersRecord getRecord() {
-        return record;
-    }
-
-    public void setRecord(FightersRecord record) {
-        this.record = record;
+    public FightersRecord getFightersRecord() {
+        return fightersRecord;
     }
 
     public TournamentLevel getTournamentLevel() {
@@ -64,5 +62,16 @@ public class Fighter {
 
     public void setTournamentStatus(TournamentStatus tournamentStatus) {
         this.tournamentStatus = tournamentStatus;
+    }
+
+    public void addWinToFighter(){
+        fightersRecord.addWin();
+    }
+
+    public void addLossToFighter(){
+        fightersRecord.addLoss();
+    }
+    public void addDrawToFighter(){
+        fightersRecord.addDraw();
     }
 }
