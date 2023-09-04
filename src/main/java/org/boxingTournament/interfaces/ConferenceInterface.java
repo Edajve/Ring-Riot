@@ -1,6 +1,6 @@
 package org.boxingTournament.interfaces;
 
-import org.boxingTournament.boxing.Fighter;
+import org.boxingTournament.fighter.Fighter;
 
 import java.util.Set;
 

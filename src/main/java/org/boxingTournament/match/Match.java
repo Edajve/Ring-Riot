@@ -1,6 +1,6 @@
 package org.boxingTournament.match;
 
-import org.boxingTournament.boxing.Fighter;
+import org.boxingTournament.fighter.Fighter;
 import org.boxingTournament.enums.MatchStatus;
 import org.boxingTournament.enums.Round;
 

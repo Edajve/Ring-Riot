@@ -1,6 +1,6 @@
 package org.boxingTournament.conference;
 
-import org.boxingTournament.boxing.Fighter;
+import org.boxingTournament.fighter.Fighter;
 import org.boxingTournament.interfaces.ConferenceInterface;
 
 import java.util.List;

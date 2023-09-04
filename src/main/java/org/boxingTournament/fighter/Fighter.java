@@ -1,4 +1,4 @@
-package org.boxingTournament.boxing;
+package org.boxingTournament.fighter;
 
 import org.boxingTournament.enums.TournamentLevel;
 import org.boxingTournament.enums.TournamentStatus;
@@ -8,14 +8,14 @@ public class Fighter {
     private final String fullName;
     private final int lbs;
     private final String height;
-    private BoxingRecord record;
+    private FightersRecord record;
     private TournamentLevel tournamentLevel;
     private TournamentStatus tournamentStatus;
 
     public Fighter(
             int id, String fullName,
             int lbs, String height,
-            BoxingRecord record
+            FightersRecord record
     ) {
         this.id = id;
         this.fullName = fullName;
@@ -42,11 +42,11 @@ public class Fighter {
         return height;
     }
 
-    public BoxingRecord getRecord() {
+    public FightersRecord getRecord() {
         return record;
     }
 
-    public void setRecord(BoxingRecord record) {
+    public void setRecord(FightersRecord record) {
         this.record = record;
     }
 
