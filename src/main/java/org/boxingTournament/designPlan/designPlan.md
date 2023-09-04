@@ -7,9 +7,7 @@
     - player level
         - Description
             - hold the level of each player in respect to the tournament
-    - Match Status
-        - Description
-            - holds whether a user is still in the tournament or eliminated
+   - Tournament status
 - Classes
     - Boxer
         - Description
