@@ -1,4 +1,4 @@
-package org.boxingTournament.Boxing;
+package org.boxingTournament.boxing;
 
 public class BoxingRecord {
     private int wins;

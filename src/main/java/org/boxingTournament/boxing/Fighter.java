@@ -1,4 +1,4 @@
-package org.boxingTournament.Boxing;
+package org.boxingTournament.boxing;
 
 import org.boxingTournament.enums.TournamentLevel;
 import org.boxingTournament.enums.TournamentStatus;

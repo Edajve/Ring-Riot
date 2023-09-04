@@ -6,6 +6,11 @@ public class Tournament {
     private Conference aSide;
     private Conference bSide;
 
+    /**
+     *
+     * @param aSide - needs a 'a' side conference in order to start a tournament
+     * @param bSide - needs a 'b' side conference in order to start a tournament
+     */
     public Tournament(Conference aSide, Conference bSide) {
         this.aSide = aSide;
         this.bSide = bSide;
