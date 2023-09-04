@@ -23,8 +23,6 @@
             - tournament level
         - Behavior
             - updating their record
-            - updating their progression in the tournament
-            - showing the information of the boxer
     - BoxingRecord
         - Description
             - Hold all the record of each player and the math to update it

@@ -11,8 +11,8 @@ public class Fighter {
     private final int lbs;
     private final String height;
     private final FightersRecord fightersRecord;
-    private TournamentLevel tournamentLevel;
-    private TournamentStatus tournamentStatus;
+    public static TournamentLevel tournamentLevel;
+    public static TournamentStatus tournamentStatus;
 
     public Fighter(
             String fullName,
@@ -64,14 +64,28 @@ public class Fighter {
         this.tournamentStatus = tournamentStatus;
     }
 
-    public void addWinToFighter(){
+    public void addWinToFighter() {
         fightersRecord.addWin();
     }
 
-    public void addLossToFighter(){
+    public void addLossToFighter() {
         fightersRecord.addLoss();
     }
-    public void addDrawToFighter(){
+
+    public void addDrawToFighter() {
         fightersRecord.addDraw();
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", lbs=" + lbs +
+                ", height='" + height + '\'' +
+                ", fightersRecord=" + fightersRecord +
+                ", tournamentLevel=" + tournamentLevel +
+                ", tournamentStatus=" + tournamentStatus +
+                '}';
     }
 }
