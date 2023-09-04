@@ -89,4 +89,23 @@
             - Generate a round between two fighters
             - Calculate Rankings for fighters
             - add match results to a text file
+    - JudgesInterface
+      - Description
+        - This will hold the common methods and behaviors a what a judge can do
+      - Behaviors
+            - Judge a round
+            - Take the rounds of each fighter and add them up
+             - return who the id of the winner
+          - clear method to clear all stats in the judges class
+    - Judges
+      - Description
+        - During a match each judge will be the ones responsible for populating the score-cards
+      - Attributes
+        - winning fighter
+        - name
+      - Behaviors
+        - Judge a round
+        - Take the rounds of each fighter and add them up
+        - return who the id of the winner
+        - clear method to clear all stats in the judges class
     
