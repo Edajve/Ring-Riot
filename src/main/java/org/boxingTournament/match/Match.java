@@ -4,7 +4,9 @@ import org.boxingTournament.enums.MatchStatus;
 import org.boxingTournament.fighter.Fighter;
 import org.boxingTournament.judges.Judge;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Match {
     private static final int ROUNDS_PER_BOUT = 12;
@@ -12,29 +14,36 @@ public class Match {
     private Fighter fighterA; //may not need
     private Fighter fighterB; //may not need
     private MatchStatus matchStatus; //may not need
-    private Set<Judge> judges;
+    private List<Judge> judges;
+    private StatisticsAndOutcomes outcomes;
 
-    public Match(Fighter fighterA, Fighter fighterB, Set<Judge> judges) {
+    public Match(Fighter fighterA, Fighter fighterB, List<Judge> judges, StatisticsAndOutcomes outcomes) {
         this.fighterA = fighterA;
         this.fighterB = fighterB;
         this.judges = judges;
+        this.outcomes = outcomes;
     }
 
     /**
-     * TODO finish this method, you did the simulateRounds methods with populates the map
-     * TODO now you just have to do the math and see who won the fight
-     *
-     * @return- the id of the fighter who won
+     * In order to run a match, you have to enroll
+     * both the fighters to each of the judges so
+     * they can keep track of score-cards
      */
-    public void runMatchSimuation() {
-        System.out.println("Run simulation");
-        for (int round = 1; round <= ROUNDS_PER_BOUT; round++) {
+    public String runMatchSimulationAndReturnWinner() {
+        for (Judge judge : judges) {
+            judge.setFighterA(fighterA);
+            judge.setFighterB(fighterB);
 
-            //judge fighters
-            //judge.judgeRound(statisticsAndOutcomes);
+            judge.judgeRound(this.outcomes);
+            judge.judgeRound(this.outcomes);
 
-            //clear fighters
+            System.out.printf(judge.getWinnerOfRounds().toString());
         }
+
+//        System.out.printf(judges.get(0).getFighterA().getFullName());
+//        System.out.printf("---------------------");
+//        System.out.printf(judges.get(0).getFighterB().getFullName());
+
 //            scoreCards = new int[3][2];
 //
 //
@@ -51,7 +60,7 @@ public class Match {
 //            scoreCards[2][1] = scoreCards[2][0] == 10 ? 9 : 10;
 //
 //            roundsAndScoreCards.put(round, scoreCards);
+        return "Hello";
     }
-
 }
 
