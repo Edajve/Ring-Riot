@@ -10,7 +10,6 @@ public class Conference implements ConferenceInterface {
     private List<Fighter> fighters;
 
     /**
-     *
      * @param fighters - needs a collection of fighters, this is required in order to enroll in a tournament
      */
     public Conference(List<Fighter> fighters) {
