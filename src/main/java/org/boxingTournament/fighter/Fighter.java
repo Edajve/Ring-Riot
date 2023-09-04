@@ -24,8 +24,8 @@ public class Fighter {
         this.lbs = lbs;
         this.height = height;
         this.fightersRecord = new FightersRecord();
-        this.tournamentLevel = TournamentLevel.ROUND_OF_16;
-        this.tournamentStatus = TournamentStatus.ACTIVE;
+        tournamentLevel = TournamentLevel.ROUND_OF_16;
+        tournamentStatus = TournamentStatus.ACTIVE;
     }
 
     public UUID getId() {
@@ -53,7 +53,7 @@ public class Fighter {
     }
 
     public void setTournamentLevel(TournamentLevel tournamentLevel) {
-        this.tournamentLevel = tournamentLevel;
+        Fighter.tournamentLevel = tournamentLevel;
     }
 
     public TournamentStatus getTournamentStatus() {
@@ -61,7 +61,7 @@ public class Fighter {
     }
 
     public void setTournamentStatus(TournamentStatus tournamentStatus) {
-        this.tournamentStatus = tournamentStatus;
+        Fighter.tournamentStatus = tournamentStatus;
     }
 
     public void addWinToFighter() {
