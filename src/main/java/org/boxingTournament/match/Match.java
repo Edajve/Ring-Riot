@@ -21,6 +21,7 @@ public class Match {
     /**
      * TODO finish this method, you did the simulateRounds methods with populates the map
      * TODO now you just have to do the math and see who won the fight
+     *
      * @param fighterA
      * @param fighterB
      * @return- the id of the fighter who won
@@ -45,15 +46,15 @@ public class Match {
             scoreCards = new int[3][2];
 
             //for only the first judge
-            scoreCards[0][0] = statisticsAndOutcomes.generateRandomInt(1001) >= 500 ? 10 : 9;
+            scoreCards[0][0] = statisticsAndOutcomes.generateRandomByte((byte) 127) >= 63 ? 10 : 9;
             scoreCards[0][1] = scoreCards[0][0] == 10 ? 9 : 10;
 
             //for only the second judge
-            scoreCards[1][0] = statisticsAndOutcomes.generateRandomInt(1001) >= 500 ? 10 : 9;
+            scoreCards[1][0] = statisticsAndOutcomes.generateRandomByte((byte) 127) >= 63 ? 10 : 9;
             scoreCards[1][1] = scoreCards[1][0] == 10 ? 9 : 10;
 
             //for only the third judge
-            scoreCards[2][0] = statisticsAndOutcomes.generateRandomInt(1001) >= 500 ? 10 : 9;
+            scoreCards[2][0] = statisticsAndOutcomes.generateRandomByte((byte) 127) >= 63 ? 10 : 9;
             scoreCards[2][1] = scoreCards[2][0] == 10 ? 9 : 10;
 
             this.roundsAndScoreCards.put(i, scoreCards);

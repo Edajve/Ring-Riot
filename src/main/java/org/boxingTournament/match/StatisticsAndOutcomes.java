@@ -8,7 +8,7 @@ public class StatisticsAndOutcomes implements RandomNumberGeneratorInterface {
     private final Random random = new Random();
 
     @Override
-    public int generateRandomInt(int max) {
-        return random.nextInt(max);
+    public byte generateRandomByte(byte max) {
+        return (byte) random.nextInt(max);
     }
 }
