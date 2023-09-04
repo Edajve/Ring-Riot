@@ -7,9 +7,11 @@
     - player level
         - Description
             - hold the level of each player in respect to the tournament
-   - Tournament status
+    - Tournament status
+       - Description
+           - stores whether a fighter is eliminated or still in the tournament
 - Classes
-    - Boxer
+    - Fighter
         - Description
             - This class should hold the specifics and logic for holding their record
         - Attributes
@@ -18,7 +20,6 @@
             - weight
             - height
             - record
-            - age
             - tournament level
         - Behavior
             - updating their record
