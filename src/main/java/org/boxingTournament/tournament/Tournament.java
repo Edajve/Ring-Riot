@@ -4,55 +4,51 @@ import org.boxingTournament.conference.Conference;
 import org.boxingTournament.fighter.Fighter;
 import org.boxingTournament.judges.Judge;
 import org.boxingTournament.match.Match;
+import org.boxingTournament.match.StatisticsAndOutcomes;
 
-import java.util.Set;
-import java.util.jar.JarEntry;
+import java.util.List;
 
 public class Tournament {
-    private Conference aSide;
-    private Conference bSide;
-    private Set<Judge> judges;
+    private Conference westConference;
+    private Conference eastConference;
+    private List<Judge> judges;
+    private StatisticsAndOutcomes statisticsAndOutcomes;
 
-    /**
-     * @param aSide - needs a 'a' side conference in order to start a tournament
-     * @param bSide - needs a 'b' side conference in order to start a tournament
-     */
-    public Tournament(Conference aSide, Conference bSide, Set<Judge> judges) {
-        this.aSide = aSide;
-        this.bSide = bSide;
+    public Tournament(
+            Conference westConference,
+            Conference eastConference,
+            List<Judge> judges,
+            StatisticsAndOutcomes statisticsAndOutcomes
+    ) {
+        this.westConference = westConference;
+        this.eastConference = eastConference;
         this.judges = judges;
+        this.statisticsAndOutcomes = statisticsAndOutcomes;
     }
 
-    public Conference getaSide() {
-        return aSide;
+    public Conference getWestConference() {
+        return westConference;
     }
 
-    public void setaSide(Conference aSide) {
-        this.aSide = aSide;
+    public void setWestConference(Conference westConference) {
+        this.westConference = westConference;
     }
 
-    public Conference getbSide() {
-        return bSide;
+    public Conference getEastConference() {
+        return eastConference;
     }
 
-    public void setbSide(Conference bSide) {
-        this.bSide = bSide;
+    public void setEastConference(Conference eastConference) {
+        this.eastConference = eastConference;
     }
 
-    /**
-     * TODO finish the method
-     * create method that run tournament simulator on a single conference and returns a single fighter that won
-     *
-     * @return single fighter who won the tournament
-     */
     public Fighter runTournament() {
-        Match match = new Match(aSide.getFighters().get(0), bSide.getFighters().get(0), judges);
-        match.runMatchSimuation();
+        new Match(westConference.getFighters().get(0), eastConference.getFighters().get(0), judges, statisticsAndOutcomes).runMatchSimulationAndReturnWinner();
         return new Fighter("Test", 0, "00");
     }
 
     @Override
     public String toString() {
-        return "Tournament{" + "aSide=" + aSide + ", bSide=" + bSide + '}';
+        return "Tournament{" + "aSide=" + westConference + ", bSide=" + eastConference + '}';
     }
 }
