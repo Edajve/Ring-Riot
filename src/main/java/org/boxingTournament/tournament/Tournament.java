@@ -43,8 +43,9 @@ public class Tournament {
     }
 
     public Fighter runTournament() {
-        new Match(westConference.getFighters().get(0), eastConference.getFighters().get(0), judges, statisticsAndOutcomes).runMatchSimulationAndReturnWinner();
-        return new Fighter("Test", 0, "00");
+        Fighter winnerOfMatch = new Match(westConference.getFighters().get(0), eastConference.getFighters().get(0), judges, statisticsAndOutcomes).runMatchSimulationAndReturnWinner();
+        System.out.println("Winner of this match is: " + winnerOfMatch);
+        return winnerOfMatch;
     }
 
     @Override

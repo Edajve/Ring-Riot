@@ -1,14 +1,14 @@
 package org.boxingTournament.interfaces;
 
+import org.boxingTournament.fighter.Fighter;
 import org.boxingTournament.match.StatisticsAndOutcomes;
 
-import java.util.UUID;
+import java.util.Optional;
 
 public interface JudgeInterface {
-    void judgeRound(StatisticsAndOutcomes statisticsAndOutcomes); //will populate a private member variable
+    void judgeRound(StatisticsAndOutcomes statisticsAndOutcomes);
 
-    UUID determineWinner();
+    Optional<Fighter> whoWonPerJudgeOpinion();
 
     void clear();
-
 }

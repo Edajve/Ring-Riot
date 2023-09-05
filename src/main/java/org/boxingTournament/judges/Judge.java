@@ -6,12 +6,10 @@ import org.boxingTournament.match.StatisticsAndOutcomes;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+import java.util.Optional;
 
 public class Judge implements JudgeInterface {
-    private final static int ROUNDS_PER_BOUT = 12;
-    private String fullName;
-    private String winningfighter;
+    private final String fullName;
     private List<String> winnerOfRounds;
     private Fighter fighterA;
     private Fighter fighterB;
@@ -41,10 +39,6 @@ public class Judge implements JudgeInterface {
         this.fighterB = fighterB;
     }
 
-    public String getWinningfighter() {
-        return winningfighter;
-    }
-
     @Override
     public void judgeRound(StatisticsAndOutcomes statisticsAndOutcomes) {
         byte randomByte = statisticsAndOutcomes.generateRandomByte((byte) 127);
@@ -53,8 +47,21 @@ public class Judge implements JudgeInterface {
     }
 
     @Override
-    public UUID determineWinner() {
-        return null;
+    public Optional<Fighter> whoWonPerJudgeOpinion() {
+        byte count = (byte) this.getWinnerOfRounds().stream()
+                .filter(f -> f.equals(this.fighterA.getFullName()))
+                .count();
+
+        if (count == 6) {
+            //draw
+            return Optional.empty();
+        } else if (count < 6) {
+            //fighterA lost
+            return Optional.of(fighterB);
+        } else {
+            //fighterA won
+            return Optional.of(fighterA);
+        }
     }
 
     @Override

@@ -4,9 +4,7 @@ import org.boxingTournament.enums.MatchStatus;
 import org.boxingTournament.fighter.Fighter;
 import org.boxingTournament.judges.Judge;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Match {
     private static final int ROUNDS_PER_BOUT = 12;
@@ -24,43 +22,64 @@ public class Match {
         this.outcomes = outcomes;
     }
 
-    /**
-     * In order to run a match, you have to enroll
-     * both the fighters to each of the judges so
-     * they can keep track of score-cards
-     */
-    public String runMatchSimulationAndReturnWinner() {
-        for (Judge judge : judges) {
-            judge.setFighterA(fighterA);
-            judge.setFighterB(fighterB);
+    public Fighter runMatchSimulationAndReturnWinner() {
+        Fighter winner = null;
 
-            judge.judgeRound(this.outcomes);
-            judge.judgeRound(this.outcomes);
+        // Loop until a winner is determined
+        while (winner == null) {
+            // Enroll fighters under all judges
+            for (Judge judge : this.judges) {
+                judge.setFighterA(fighterA);
+                judge.setFighterB(fighterB);
+            }
 
-            System.out.printf(judge.getWinnerOfRounds().toString());
+            // Each judge scores each round at each iteration
+            for (int round = 0; round < ROUNDS_PER_BOUT; round++) {
+                for (Judge judge : this.judges) judge.judgeRound(this.outcomes);
+            }
+
+            // Add all three judges' personal winners to a list of Optionals
+            ArrayList<Optional<Fighter>> listOfTheWinnerPerEachJudge = new ArrayList<>();
+            judges.forEach(j -> listOfTheWinnerPerEachJudge.add(j.whoWonPerJudgeOpinion()));
+
+            // Get the result of the match from the list of Optionals, handling empty (draw) gracefully
+            Optional<Fighter> result = resultOfMatchBetweenJudges(listOfTheWinnerPerEachJudge);
+
+            // If it's a draw, continue the loop to retry the match
+            if (result.isPresent()) {
+                winner = result.get();
+            }
         }
 
-//        System.out.printf(judges.get(0).getFighterA().getFullName());
-//        System.out.printf("---------------------");
-//        System.out.printf(judges.get(0).getFighterB().getFullName());
+        return winner;
+    }
 
-//            scoreCards = new int[3][2];
-//
-//
-//            //for only the first judge
-//            scoreCards[0][0] = statisticsAndOutcomes.generateRandomByte((byte) 127) >= 63 ? 10 : 9;
-//            scoreCards[0][1] = scoreCards[0][0] == 10 ? 9 : 10;
-//
-//            //for only the second judge
-//            scoreCards[1][0] = statisticsAndOutcomes.generateRandomByte((byte) 127) >= 63 ? 10 : 9;
-//            scoreCards[1][1] = scoreCards[1][0] == 10 ? 9 : 10;
-//
-//            //for only the third judge
-//            scoreCards[2][0] = statisticsAndOutcomes.generateRandomByte((byte) 127) >= 63 ? 10 : 9;
-//            scoreCards[2][1] = scoreCards[2][0] == 10 ? 9 : 10;
-//
-//            roundsAndScoreCards.put(round, scoreCards);
-        return "Hello";
+    public Optional<Fighter> resultOfMatchBetweenJudges(ArrayList<Optional<Fighter>> list) {
+        Map<Fighter, Integer> fighterCountMap = new HashMap<>();
+
+        // Count the number of times each fighter appears as a winner
+        for (Optional<Fighter> winner : list) {
+            winner.ifPresent(fighter -> {
+                fighterCountMap.put(fighter, fighterCountMap.getOrDefault(fighter, 0) + 1);
+            });
+        }
+
+        // If there's only one fighter with the most wins, return that fighter
+        if (fighterCountMap.size() == 1) {
+            return Optional.of(fighterCountMap.keySet().iterator().next());
+        }
+
+        // If there are two fighters with the same number of wins, return null (draw)
+        if (fighterCountMap.size() == 2) {
+            for (Map.Entry<Fighter, Integer> entry : fighterCountMap.entrySet()) {
+                if (entry.getValue() == 2) {
+                    return Optional.empty(); // It's a draw
+                }
+            }
+        }
+
+        // If there are more than two fighters or no winner with 2 wins, return null
+        return Optional.empty();
     }
 }
 

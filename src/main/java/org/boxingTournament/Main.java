@@ -14,7 +14,7 @@ public class Main {
         //west fighters
         List<Fighter> westFighters = new ArrayList<>(
                 List.of(
-                        new Fighter("Mark Zuckerburg", 158, "5'9"),
+                        new Fighter("The Primegan", 158, "5'9"),
                         new Fighter("Kenny Wilson", 158, "5'9")
                 )
         );
@@ -22,7 +22,7 @@ public class Main {
         //east fighters
         List<Fighter> eastFighters = new ArrayList<>(
                 List.of(
-                        new Fighter("Drawson Standford", 158, "5'9"),
+                        new Fighter("Mike Bibby", 158, "5'9"),
                         new Fighter("Kerry Alis", 158, "5'9")
                 )
         );
