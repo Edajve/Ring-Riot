@@ -8,7 +8,6 @@ import java.util.*;
 
 public class Match {
     private static final int ROUNDS_PER_BOUT = 12;
-    private Map<Integer, int[][]> roundsAndScoreCards = new HashMap<>();
     private Fighter fighterA; //may not need
     private Fighter fighterB; //may not need
     private MatchStatus matchStatus; //may not need
@@ -38,7 +37,7 @@ public class Match {
                 for (Judge judge : this.judges) judge.judgeRound(this.outcomes);
             }
 
-            // Add all three judges' personal winners to a list of Optionals
+            // Add all three judges personal winners to a list of Optionals
             ArrayList<Optional<Fighter>> listOfTheWinnerPerEachJudge = new ArrayList<>();
             judges.forEach(j -> listOfTheWinnerPerEachJudge.add(j.whoWonPerJudgeOpinion()));
 
@@ -69,16 +68,16 @@ public class Match {
             return Optional.of(fighterCountMap.keySet().iterator().next());
         }
 
-        // If there are two fighters with the same number of wins, return null (draw)
+        // If there are two fighters with the same number of wins, return the fighter with 2 wins
         if (fighterCountMap.size() == 2) {
             for (Map.Entry<Fighter, Integer> entry : fighterCountMap.entrySet()) {
                 if (entry.getValue() == 2) {
-                    return Optional.empty(); // It's a draw
+                    return Optional.of(entry.getKey());
                 }
             }
         }
 
-        // If there are more than two fighters or no winner with 2 wins, return null
+        // If there are three fighters with different wins, return null (draw)
         return Optional.empty();
     }
 }
