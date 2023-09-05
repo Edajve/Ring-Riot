@@ -1,5 +1,6 @@
 package org.boxingTournament.match;
 
+import org.boxingTournament.constants.Constants;
 import org.boxingTournament.enums.MatchStatus;
 import org.boxingTournament.fighter.Fighter;
 import org.boxingTournament.judges.Judge;
@@ -7,7 +8,6 @@ import org.boxingTournament.judges.Judge;
 import java.util.*;
 
 public class Match {
-    private static final int ROUNDS_PER_BOUT = 12;
     private Fighter fighterA; //may not need
     private Fighter fighterB; //may not need
     private MatchStatus matchStatus; //may not need
@@ -33,7 +33,7 @@ public class Match {
             }
 
             // Each judge scores each round at each iteration
-            for (int round = 0; round < ROUNDS_PER_BOUT; round++) {
+            for (int round = 0; round < Constants.ROUNDS_PER_BOUT; round++) {
                 for (Judge judge : this.judges) judge.judgeRound(this.outcomes);
             }
 

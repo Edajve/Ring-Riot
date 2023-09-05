@@ -1,5 +1,6 @@
 package org.boxingTournament.judges;
 
+import org.boxingTournament.constants.Constants;
 import org.boxingTournament.fighter.Fighter;
 import org.boxingTournament.interfaces.JudgeInterface;
 import org.boxingTournament.match.StatisticsAndOutcomes;
@@ -48,21 +49,24 @@ public class Judge implements JudgeInterface {
 
     @Override
     public Optional<Fighter> whoWonPerJudgeOpinion() {
-        byte count = (byte) this.getWinnerOfRounds().stream()
-                .filter(f -> f.equals(this.fighterA.getFullName()))
+        long roundsWonByFighterA = this.getWinnerOfRounds().stream()
+                .filter(winner -> winner.equals(this.fighterA.getFullName()))
                 .count();
 
-        if (count == 6) {
-            //draw
+        long roundsWonByFighterB = Constants.ROUNDS_PER_BOUT - roundsWonByFighterA; // Calculate rounds won by fighterB
+
+        if (roundsWonByFighterA == roundsWonByFighterB) {
+            // Draw
             return Optional.empty();
-        } else if (count < 6) {
-            //fighterA lost
+        } else if (roundsWonByFighterA < roundsWonByFighterB) {
+            // FighterB won
             return Optional.of(fighterB);
         } else {
-            //fighterA won
+            // FighterA won
             return Optional.of(fighterA);
         }
     }
+
 
     @Override
     public void clear() {
