@@ -84,18 +84,20 @@ public class Match {
             Fighter losingFighter = (winningFighter == fighterA) ? fighterB : fighterA;
 
             winningFighter.addWin();
-            nextEnum(winningFighter.getTournamentLevel().toString(), winningFighter);
+            nextEnum(winningFighter.getTournamentLevel(), winningFighter);
             losingFighter.addLoss();
-            losingFighter.setTournamentStatus(TournamentStatus.ELIMINATED);
+            losingFighter.setTournamentStatus(String.valueOf(TournamentStatus.ELIMINATED));
         }
     }
 
     public void nextEnum(String enumState, Fighter fighter) throws Exception {
         switch (enumState) {
-            case "ROUND_OF_16" -> fighter.setTournamentLevel(TournamentLevel.QUARTER_FINALS);
-            case "QUARTER_FINALS" -> fighter.setTournamentLevel(TournamentLevel.SEMI_FINALS);
-            case "SEMI_FINALS" -> fighter.setTournamentLevel(TournamentLevel.FINALS);
-            case "FINALS" -> fighter.setTournamentLevel(TournamentLevel.CHAMPION);
+            case "ROUND_OF_16" -> fighter.setTournamentLevel(TournamentLevel.QUARTER_FINALS.toString());
+            case "QUARTER_FINALS" -> fighter.setTournamentLevel(TournamentLevel.SEMI_FINALS.toString());
+            case "SEMI_FINALS" -> fighter.setTournamentLevel(TournamentLevel.FINALS.toString());
+            case "FINALS" -> fighter.setTournamentLevel(TournamentLevel.CHAMPION.toString());
+            case "CHAMPION" -> {
+            }
             default -> throw new Exception("Parameter is not in switch case");
         }
     }

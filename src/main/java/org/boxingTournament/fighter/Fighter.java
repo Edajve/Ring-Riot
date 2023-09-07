@@ -11,8 +11,8 @@ public class Fighter {
     private final int lbs;
     private final String height;
     private final FightersRecord fightersRecord;
-    public static TournamentLevel tournamentLevel;
-    public static TournamentStatus tournamentStatus;
+    public String tournamentLevel;
+    public String tournamentStatus;
 
     public Fighter(
             String fullName,
@@ -24,8 +24,8 @@ public class Fighter {
         this.lbs = lbs;
         this.height = height;
         this.fightersRecord = new FightersRecord();
-        tournamentLevel = TournamentLevel.ROUND_OF_16;
-        tournamentStatus = TournamentStatus.ACTIVE;
+        this.tournamentLevel = TournamentLevel.ROUND_OF_16.toString();
+        this.tournamentStatus = TournamentStatus.ACTIVE.toString();
     }
 
     public UUID getId() {
@@ -48,20 +48,20 @@ public class Fighter {
         return fightersRecord;
     }
 
-    public TournamentLevel getTournamentLevel() {
+    public String getTournamentLevel() {
         return tournamentLevel;
     }
 
-    public void setTournamentLevel(TournamentLevel tournamentLevel) {
-        Fighter.tournamentLevel = tournamentLevel;
+    public void setTournamentLevel(String tournamentLevel) {
+        this.tournamentLevel = tournamentLevel;
     }
 
-    public TournamentStatus getTournamentStatus() {
+    public String getTournamentStatus() {
         return tournamentStatus;
     }
 
-    public void setTournamentStatus(TournamentStatus tournamentStatus) {
-        Fighter.tournamentStatus = tournamentStatus;
+    public void setTournamentStatus(String tournamentStatus) {
+        this.tournamentStatus = tournamentStatus;
     }
 
     public void addWin() {

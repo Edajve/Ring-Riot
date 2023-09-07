@@ -46,6 +46,7 @@ public class Tournament {
 
     public void runTournament() throws Exception {
         Fighter winner = runConference(eastConference.getFighters());
+        eastConference.getFighters().forEach(System.out::println);
         System.out.println(winner);
     }
 
