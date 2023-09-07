@@ -19,7 +19,7 @@ public class Match {
         this.outcomes = outcomes;
     }
 
-    public Fighter runMatchSimulationAndReturnWinner() {
+    public Fighter runMatch() {
         Fighter winner = null;
 
         while (winner == null) {
