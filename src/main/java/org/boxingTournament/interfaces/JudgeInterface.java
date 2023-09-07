@@ -9,6 +9,4 @@ public interface JudgeInterface {
     void judgeRound(StatisticsAndOutcomes statisticsAndOutcomes);
 
     Optional<Fighter> whoWonPerJudgeOpinion();
-
-    void clear();
 }
