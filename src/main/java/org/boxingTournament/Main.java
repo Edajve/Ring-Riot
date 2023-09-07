@@ -21,6 +21,9 @@ public class Main {
                 )
         );
 
+        /**
+         * TODO start filling out real boxers with their real data
+         */
         //east fighters
         List<Fighter> eastFighters = new ArrayList<>(
                 List.of(
@@ -36,6 +39,9 @@ public class Main {
                 )
         );
 
+        /**
+         * TODO start filling out real boxers with their real data
+         */
         //east and west conferences
         Conference westConference = new Conference(westFighters);
         Conference eastConference = new Conference(eastFighters);
