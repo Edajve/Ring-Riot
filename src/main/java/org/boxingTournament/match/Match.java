@@ -69,7 +69,6 @@ public class Match {
                 }
             }
         }
-
         // return null (draw)
         return Optional.empty();
     }
