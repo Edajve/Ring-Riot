@@ -6,22 +6,11 @@ import org.boxingTournament.interfaces.ConferenceInterface;
 import java.util.List;
 import java.util.Set;
 
-public class Conference implements ConferenceInterface {
-    private List<Fighter> fighters;
-
+public record Conference(List<Fighter> fighters) implements ConferenceInterface {
     /**
      * @param fighters - needs a collection of fighters, this is required in order to enroll in a tournament
      */
-    public Conference(List<Fighter> fighters) {
-        this.fighters = fighters;
-    }
-
-    public List<Fighter> getFighters() {
-        return fighters;
-    }
-
-    public void setFighters(List<Fighter> fighters) {
-        this.fighters = fighters;
+    public Conference {
     }
 
     @Override

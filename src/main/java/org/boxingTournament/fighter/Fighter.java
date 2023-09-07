@@ -28,20 +28,8 @@ public class Fighter {
         this.tournamentStatus = TournamentStatus.ACTIVE.toString();
     }
 
-    public UUID getId() {
-        return id;
-    }
-
     public String getFullName() {
         return fullName;
-    }
-
-    public int getLbs() {
-        return lbs;
-    }
-
-    public String getHeight() {
-        return height;
     }
 
     public FightersRecord getFightersRecord() {

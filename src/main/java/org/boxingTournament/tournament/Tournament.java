@@ -11,8 +11,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Tournament {
-    private Conference westConference;
-    private Conference eastConference;
+    private final Conference westConference;
+    private final Conference eastConference;
     private final List<Judge> judges;
     private final StatisticsAndOutcomes statisticsAndOutcomes;
 
@@ -28,26 +28,17 @@ public class Tournament {
         this.statisticsAndOutcomes = statisticsAndOutcomes;
     }
 
-    public Conference getWestConference() {
-        return westConference;
-    }
-
-    public void setWestConference(Conference westConference) {
-        this.westConference = westConference;
-    }
-
-    public Conference getEastConference() {
-        return eastConference;
-    }
-
-    public void setEastConference(Conference eastConference) {
-        this.eastConference = eastConference;
-    }
-
     public void runTournament() throws Exception {
-        Fighter winner = runConference(eastConference.getFighters());
-        eastConference.getFighters().forEach(System.out::println);
-        System.out.println(winner);
+        Fighter easternConferenceWinner = runConference(eastConference.fighters());
+        Fighter westernConferenceWinner = runConference(westConference.fighters());
+        Fighter ultimateChampion = new Match(
+                easternConferenceWinner,
+                westernConferenceWinner,
+                this.judges,
+                this.statisticsAndOutcomes)
+                .runMatch();
+
+        System.out.println(ultimateChampion);
     }
 
     public Fighter runConference(List<Fighter> fighters) throws Exception {
