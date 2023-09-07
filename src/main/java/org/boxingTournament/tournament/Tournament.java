@@ -44,12 +44,12 @@ public class Tournament {
         this.eastConference = eastConference;
     }
 
-    public void runTournament() {
+    public void runTournament() throws Exception {
         Fighter winner = runConference(eastConference.getFighters());
         System.out.println(winner);
     }
 
-    public Fighter runConference(List<Fighter> fighters) {
+    public Fighter runConference(List<Fighter> fighters) throws Exception {
         List<Fighter> nextRounder = new LinkedList<>();
 
         int low = 0;
@@ -59,10 +59,7 @@ public class Tournament {
             Fighter lowFighter = fighters.get(low);
             Fighter highFighter = fighters.get(high);
 
-            System.out.println("Fighter A: " + lowFighter.getFullName() + " at index-" + low);
-            System.out.println("Fighter B: " + highFighter.getFullName() + " at index-" + high);
             Fighter winner = new Match(highFighter, lowFighter, this.judges, this.statisticsAndOutcomes).runMatch();
-            System.out.println("The winner: " + winner.getFullName());
             nextRounder.add(winner);
 
             low += 1;
@@ -70,7 +67,7 @@ public class Tournament {
         }
 
         if (nextRounder.size() != 1) {
-            Collections.shuffle(nextRounder); //randomize order for more randomness
+            Collections.shuffle(nextRounder); //shuffle order for more randomness
             return runConference(nextRounder);
         } else {
             return nextRounder.get(0);

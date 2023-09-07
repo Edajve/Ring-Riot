@@ -80,7 +80,7 @@ public class MatchClassTest {
     }
 
     @Test
-    public void updateRecords_IfDraw_BothFightersGetsDraw() {
+    public void updateRecords_IfDraw_BothFightersGetsDraw() throws Exception {
         //given
         Optional<Fighter> winner = Optional.empty();
         //when
@@ -97,7 +97,7 @@ public class MatchClassTest {
     }
 
     @Test
-    public void updateRecords_IfAWins_AGetsWinBGetsLoss() {
+    public void updateRecords_IfAWins_AGetsWinBGetsLoss() throws Exception {
         //given
         Optional<Fighter> winner = Optional.of(fighterA);
         //when
@@ -110,7 +110,7 @@ public class MatchClassTest {
     }
 
     @Test
-    public void updateRecords_IfBWins_BGetsWinAGetsLoss() {
+    public void updateRecords_IfBWins_BGetsWinAGetsLoss() throws Exception {
         //given
         Optional<Fighter> winner = Optional.of(fighterB);
         //when
@@ -120,6 +120,20 @@ public class MatchClassTest {
         int fighterBActual = fighterB.getFightersRecord().getWins();
 
         Assertions.assertEquals(fighterBExpected, fighterBActual);
+    }
+
+
+    @Test
+    public void nextEnum_FighterWinds_GoToNextLevelInTournament() throws Exception {
+        //given
+        Optional<Fighter> winner = Optional.of(fighterB);
+        //when
+        underTest.updateRecords(winner);
+        //then
+        String expected = "QUARTER_FINALS";
+        String actual = fighterB.getTournamentLevel().toString();
+
+        Assertions.assertEquals(expected, actual);
     }
 }
 
