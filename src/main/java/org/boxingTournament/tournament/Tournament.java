@@ -6,6 +6,8 @@ import org.boxingTournament.judges.Judge;
 import org.boxingTournament.match.Match;
 import org.boxingTournament.match.StatisticsAndOutcomes;
 
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Tournament {
@@ -43,8 +45,36 @@ public class Tournament {
     }
 
     public void runTournament() {
-        Fighter winnerOfMatch = new Match(westConference.getFighters().get(0), eastConference.getFighters().get(0), judges, statisticsAndOutcomes).runMatchSimulationAndReturnWinner();
-        System.out.println("Winner of this match is: " + winnerOfMatch);
+        Fighter winner = runConference(eastConference.getFighters());
+        System.out.println(winner);
+    }
+
+    public Fighter runConference(List<Fighter> fighters) {
+        List<Fighter> nextRounder = new LinkedList<>();
+
+        int low = 0;
+        int high = fighters.size() - 1;
+
+        while (low < high) {
+            Fighter lowFighter = fighters.get(low);
+            Fighter highFighter = fighters.get(high);
+
+            System.out.println("Fighter A: " + lowFighter.getFullName() + " at index-" + low);
+            System.out.println("Fighter B: " + highFighter.getFullName() + " at index-" + high);
+            Fighter winner = new Match(highFighter, lowFighter, this.judges, this.statisticsAndOutcomes).runMatch();
+            System.out.println("The winner: " + winner.getFullName());
+            nextRounder.add(winner);
+
+            low += 1;
+            high -= 1;
+        }
+
+        if (nextRounder.size() != 1) {
+            Collections.shuffle(nextRounder); //randomize order for more randomness
+            return runConference(nextRounder);
+        } else {
+            return nextRounder.get(0);
+        }
     }
 
     @Override
