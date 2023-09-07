@@ -4,8 +4,7 @@ import org.boxingTournament.fighter.Fighter;
 import org.boxingTournament.judges.Judge;
 import org.boxingTournament.match.Match;
 import org.boxingTournament.match.StatisticsAndOutcomes;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,38 +12,38 @@ import java.util.Optional;
 
 public class MatchClassTest {
 
-    Fighter fighterOne = new Fighter("FighterOne", 136, "5'\"8");
-    Fighter fighterTwo = new Fighter("FighterTwo", 135, "5'\"9");
-    StatisticsAndOutcomes outcomes = new StatisticsAndOutcomes();
-    List<Judge> judges = new ArrayList<>(
-            List.of(
-                    new Judge("Judge 1"),
-                    new Judge("Judge 2"),
-                    new Judge("Judge 3")
-            )
-    );
+    private Fighter fighterA;
+    private Fighter fighterB;
+    private Match underTest;
 
-    Match underTest = new Match(fighterOne, fighterTwo, judges, outcomes);
+    @BeforeEach
+    void setUp() {
+        fighterA = new Fighter("FighterOne", 136, "5'8\"");
+        fighterB = new Fighter("FighterTwo", 135, "5'9\"");
+        StatisticsAndOutcomes outcomes = new StatisticsAndOutcomes();
+        List<Judge> judges = new ArrayList<>(
+                List.of(
+                        new Judge("Judge 1"),
+                        new Judge("Judge 2"),
+                        new Judge("Judge 3")
+                )
+        );
+        underTest = new Match(fighterA, fighterB, judges, outcomes);
+    }
 
-    /**
-     * Don't neet do test simulateRounds() because its is a private methods, but its being called
-     * withing returnFightResults() so we will be indirectly testing this method via another.
-     * It was manually validated, and it looks good, all the rounds seem random and not clear
-     * pattern. LGTM
-     */
     @Test
     void resultOfMatchBetweenJudges_IfPlayerOneIsUnanimous_ReturnPlayerOne() {
         // Given
         ArrayList<Optional<Fighter>> list = new ArrayList<>();
-        list.add(Optional.of(fighterOne));
-        list.add(Optional.of(fighterOne));
+        list.add(Optional.of(fighterA));
+        list.add(Optional.of(fighterA));
         list.add(Optional.empty()); // Indicates a draw
 
         // When
         Optional<Fighter> actual = underTest.resultOfMatchBetweenJudges(list);
 
         // Then
-        Optional<Fighter> expected = Optional.of(fighterOne);
+        Optional<Fighter> expected = Optional.of(fighterA);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -52,15 +51,15 @@ public class MatchClassTest {
     void resultOfMatchBetweenJudges_IfPlayerBIsUnanimous_ReturnPlayerB() {
         // Given
         ArrayList<Optional<Fighter>> list = new ArrayList<>();
-        list.add(Optional.of(fighterTwo));
-        list.add(Optional.of(fighterTwo));
+        list.add(Optional.of(fighterB));
+        list.add(Optional.of(fighterB));
         list.add(Optional.empty()); // Indicates a draw
 
         // When
         Optional<Fighter> actual = underTest.resultOfMatchBetweenJudges(list);
 
         // Then
-        Optional<Fighter> expected = Optional.of(fighterTwo);
+        Optional<Fighter> expected = Optional.of(fighterB);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -68,8 +67,8 @@ public class MatchClassTest {
     void resultOfMatchBetweenJudges_IfMatchEndsInDraw_ReturnEmptyOptional() {
         // Given
         ArrayList<Optional<Fighter>> list = new ArrayList<>();
-        list.add(Optional.of(fighterOne));
-        list.add(Optional.of(fighterTwo));
+        list.add(Optional.of(fighterA));
+        list.add(Optional.of(fighterB));
         list.add(Optional.empty()); // Indicates a draw
 
         // When
@@ -79,4 +78,51 @@ public class MatchClassTest {
         Optional<Fighter> expected = Optional.empty(); // Draw
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void updateRecords_IfDraw_BothFightersGetsDraw() {
+        //given
+        Optional<Fighter> winner = Optional.empty();
+        //when
+        underTest.updateRecords(winner);
+        //then
+        int fighterAExpected = 1;
+        int fighterBExpected = 1;
+
+        int fighterAActual = fighterA.getFightersRecord().getDraws();
+        int fighterBActual = fighterB.getFightersRecord().getDraws();
+
+        Assertions.assertEquals(fighterAExpected, fighterAActual);
+        Assertions.assertEquals(fighterBExpected, fighterBActual);
+    }
+
+    @Test
+    public void updateRecords_IfAWins_AGetsWinBGetsLoss() {
+        //given
+        Optional<Fighter> winner = Optional.of(fighterA);
+        //when
+        underTest.updateRecords(winner);
+        //then
+        int fighterAExpected = 1;
+
+        int fighterAActual = fighterA.getFightersRecord().getWins();
+
+        Assertions.assertEquals(fighterAExpected, fighterAActual);
+    }
+
+    @Test
+    public void updateRecords_IfBWins_BGetsWinAGetsLoss() {
+        //given
+        Optional<Fighter> winner = Optional.of(fighterB);
+        //when
+        underTest.updateRecords(winner);
+        //then
+        int fighterBExpected = 1;
+
+        int fighterBActual = fighterB.getFightersRecord().getWins();
+
+        Assertions.assertEquals(fighterBExpected, fighterBActual);
+    }
 }
+
+
