@@ -104,7 +104,6 @@ public class MatchClassTest {
         underTest.updateRecords(winner);
         //then
         int fighterAExpected = 1;
-
         int fighterAActual = fighterA.getFightersRecord().getWins();
 
         Assertions.assertEquals(fighterAExpected, fighterAActual);
@@ -118,7 +117,6 @@ public class MatchClassTest {
         underTest.updateRecords(winner);
         //then
         int fighterBExpected = 1;
-
         int fighterBActual = fighterB.getFightersRecord().getWins();
 
         Assertions.assertEquals(fighterBExpected, fighterBActual);
