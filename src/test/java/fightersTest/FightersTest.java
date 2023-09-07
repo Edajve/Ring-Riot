@@ -10,7 +10,7 @@ public class FightersTest {
     @Test
     void addWinThroughFighter_ExpectedRecordWinShouldIncreaseByOne() {
         //when
-        underTest.addWinToFighter();
+        underTest.addWin();
         //then
         String expected = "{wins=1, losses=0, draws=0}";
         String actual = underTest.getFightersRecord().toString();
@@ -20,7 +20,7 @@ public class FightersTest {
     @Test
     void addLossThroughFighter_ExpectedRecordLossShouldIncreaseByOne() {
         //when
-        underTest.addLossToFighter();
+        underTest.addLoss();
         //then
         String expected = "{wins=0, losses=1, draws=0}";
         String actual = underTest.getFightersRecord().toString();
@@ -30,7 +30,7 @@ public class FightersTest {
     @Test
     void addDrawThroughFighter_ExpectedRecordDrawShouldIncreaseByOne() {
         //when
-        underTest.addDrawToFighter();
+        underTest.addDraw();
         //then
         String expected = "{wins=0, losses=0, draws=1}";
         String actual = underTest.getFightersRecord().toString();

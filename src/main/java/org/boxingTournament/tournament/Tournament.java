@@ -11,8 +11,8 @@ import java.util.List;
 public class Tournament {
     private Conference westConference;
     private Conference eastConference;
-    private List<Judge> judges;
-    private StatisticsAndOutcomes statisticsAndOutcomes;
+    private final List<Judge> judges;
+    private final StatisticsAndOutcomes statisticsAndOutcomes;
 
     public Tournament(
             Conference westConference,
@@ -42,10 +42,9 @@ public class Tournament {
         this.eastConference = eastConference;
     }
 
-    public Fighter runTournament() {
+    public void runTournament() {
         Fighter winnerOfMatch = new Match(westConference.getFighters().get(0), eastConference.getFighters().get(0), judges, statisticsAndOutcomes).runMatchSimulationAndReturnWinner();
         System.out.println("Winner of this match is: " + winnerOfMatch);
-        return winnerOfMatch;
     }
 
     @Override

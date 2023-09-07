@@ -64,15 +64,15 @@ public class Fighter {
         Fighter.tournamentStatus = tournamentStatus;
     }
 
-    public void addWinToFighter() {
+    public void addWin() {
         fightersRecord.addWin();
     }
 
-    public void addLossToFighter() {
+    public void addLoss() {
         fightersRecord.addLoss();
     }
 
-    public void addDrawToFighter() {
+    public void addDraw() {
         fightersRecord.addDraw();
     }
 
