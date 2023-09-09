@@ -1,5 +1,5 @@
 package org.boxingTournament.constants;
 
-public class Constants {
+public class FightConstants {
     public static final int ROUNDS_PER_BOUT = 12;
 }

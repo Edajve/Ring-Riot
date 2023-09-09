@@ -49,7 +49,7 @@
             - Eliminate a fighter off of the tournament structure
             - if there is a tie, they have to fight again
             - Run the next round (level) of tournament
-    - ConferenceAbstractClass
+    - ConferenceInterface
         - Description
             - hold the common structure of each conference
         - AbstractMethods
@@ -80,7 +80,7 @@
             - update winner for winner
             - update tournament class on who won and who loss
             - match result to the statistics class for export
-    - StatisticsAndScoring
+    - StatisticsAndScoring extends RandomNumInterface
         - Description
             - Implement a scoring system to determine match outcomes,
               calculate rankings, and declare winners. Display these statistics
@@ -108,4 +108,7 @@
         - Take the rounds of each fighter and add them up
         - return who the id of the winner
         - clear method to clear all stats in the judges class
+      - RandomNumInterface
+        - Description
+          - for generating/random type methods when dealing with anything random
     

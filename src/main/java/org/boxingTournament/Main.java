@@ -3,8 +3,7 @@ package org.boxingTournament;
 import org.boxingTournament.conference.Conference;
 import org.boxingTournament.fighter.Fighter;
 import org.boxingTournament.judges.Judge;
-import org.boxingTournament.match.StatisticsAndOutcomes;
-import org.boxingTournament.tournament.Tournament;
+import org.boxingTournament.logging.ExportToTxt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,9 +38,6 @@ public class Main {
                 )
         );
 
-        /**
-         * TODO start filling out real boxers with their real data
-         */
         //east and west conferences
         Conference westConference = new Conference(westFighters);
         Conference eastConference = new Conference(eastFighters);
@@ -56,6 +52,8 @@ public class Main {
         );
 
         //tournament structure
-        new Tournament(westConference, eastConference, judges, new StatisticsAndOutcomes()).runTournament();
+        //new Tournament(westConference, eastConference, judges, new StatisticsAndOutcomes()).runTournament();
+       ExportToTxt.log("something else");
+       ExportToTxt.log("something else x2");
     }
 }

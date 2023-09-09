@@ -1,6 +1,6 @@
 package org.boxingTournament.judges;
 
-import org.boxingTournament.constants.Constants;
+import org.boxingTournament.constants.FightConstants;
 import org.boxingTournament.fighter.Fighter;
 import org.boxingTournament.interfaces.JudgeInterface;
 import org.boxingTournament.match.StatisticsAndOutcomes;
@@ -55,7 +55,7 @@ public class Judge implements JudgeInterface {
                 .filter(winner -> winner.equals(this.fighterA.getFullName()))
                 .count();
 
-        long roundsWonByFighterB = Constants.ROUNDS_PER_BOUT - roundsWonByFighterA;
+        long roundsWonByFighterB = FightConstants.ROUNDS_PER_BOUT - roundsWonByFighterA;
 
         if (roundsWonByFighterA == roundsWonByFighterB)
             return Optional.empty(); // Draw

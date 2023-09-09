@@ -1,6 +1,6 @@
 package org.boxingTournament.match;
 
-import org.boxingTournament.constants.Constants;
+import org.boxingTournament.constants.FightConstants;
 import org.boxingTournament.enums.TournamentLevel;
 import org.boxingTournament.enums.TournamentStatus;
 import org.boxingTournament.fighter.Fighter;
@@ -31,7 +31,7 @@ public class Match {
                 judge.setFighterB(fighterB);
             }
 
-            for (int round = 0; round < Constants.ROUNDS_PER_BOUT; round++) {
+            for (int round = 0; round < FightConstants.ROUNDS_PER_BOUT; round++) {
                 for (Judge judge : this.judges) judge.judgeRound(this.outcomes);
             }
 
