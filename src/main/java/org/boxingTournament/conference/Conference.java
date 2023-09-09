@@ -6,11 +6,25 @@ import org.boxingTournament.interfaces.ConferenceInterface;
 import java.util.List;
 import java.util.Set;
 
-public record Conference(List<Fighter> fighters) implements ConferenceInterface {
+public class Conference implements ConferenceInterface {
     /**
      * @param fighters - needs a collection of fighters, this is required in order to enroll in a tournament
      */
-    public Conference {
+
+    private final String conferenceName;
+    private final List<Fighter> conferenceFighters;
+
+    public Conference(String conferenceName, List<Fighter> conferenceFighters) {
+        this.conferenceName = conferenceName;
+        this.conferenceFighters = conferenceFighters;
+    }
+
+    public String getConferenceName() {
+        return conferenceName;
+    }
+
+    public List<Fighter> getConferenceFighters() {
+        return conferenceFighters;
     }
 
     @Override
@@ -21,5 +35,13 @@ public record Conference(List<Fighter> fighters) implements ConferenceInterface 
     @Override
     public Set<Fighter> rankFighters() {
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Conference{" +
+                "conferenceName='" + conferenceName + '\'' +
+                ", conferenceFighters=" + conferenceFighters +
+                '}';
     }
 }

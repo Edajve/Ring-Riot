@@ -19,4 +19,8 @@ public class ExportToTxt {
             e.fillInStackTrace();
         }
     }
+
+    public static void logIntro() {
+        log("Starting tournament..");
+    }
 }

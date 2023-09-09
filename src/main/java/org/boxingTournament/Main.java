@@ -4,6 +4,8 @@ import org.boxingTournament.conference.Conference;
 import org.boxingTournament.fighter.Fighter;
 import org.boxingTournament.judges.Judge;
 import org.boxingTournament.logging.ExportToTxt;
+import org.boxingTournament.match.StatisticsAndOutcomes;
+import org.boxingTournament.tournament.Tournament;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +41,8 @@ public class Main {
         );
 
         //east and west conferences
-        Conference westConference = new Conference(westFighters);
-        Conference eastConference = new Conference(eastFighters);
+        Conference westConference = new Conference("West", westFighters);
+        Conference eastConference = new Conference("East", eastFighters);
 
         //judges
         List<Judge> judges = new ArrayList<>(
@@ -52,8 +54,6 @@ public class Main {
         );
 
         //tournament structure
-        //new Tournament(westConference, eastConference, judges, new StatisticsAndOutcomes()).runTournament();
-       ExportToTxt.log("something else");
-       ExportToTxt.log("something else x2");
+        new Tournament(westConference, eastConference, judges, new StatisticsAndOutcomes()).runTournament();
     }
 }
