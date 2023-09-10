@@ -15,10 +15,10 @@ public class Main {
         //west fighters
         List<Fighter> westFighters = new ArrayList<>(
                 List.of(
-                        new Fighter("The Primegan", 158, "5'9"),
-                        new Fighter("Kenny Wilson", 158, "5'9"),
-                        new Fighter("Coi Leray", 158, "5'10"),
-                        new Fighter("Morgan Freeman", 158, "5'5")
+                        new Fighter("The Primegan", 158, "5'9\"", "Chicago, Il"),
+                        new Fighter("Kenny Wilson", 158, "5'9\"", "Chicago, Il"),
+                        new Fighter("Coi Leray", 158, "5'10\"", "Chicago, Il"),
+                        new Fighter("Morgan Freeman", 158, "5'5\"", "Chicago, Il")
                 )
         );
 
@@ -28,15 +28,15 @@ public class Main {
         //east fighters
         List<Fighter> eastFighters = new ArrayList<>(
                 List.of(
-                        new Fighter("Mike Bibby", 158, "5'9"),
-                        new Fighter("Kerry Alis", 158, "5'9"),
-                        new Fighter("Lonzo Ball", 158, "5'8"),
-                        new Fighter("Kamala Harris", 158, "5'6"),
+                        new Fighter("Mike Bibby", 158, "5'9\"", "Chicago, Il"),
+                        new Fighter("Kerry Alis", 158, "5'9\"", "Chicago, Il"),
+                        new Fighter("Lonzo Ball", 158, "5'8\"", "Chicago, Il"),
+                        new Fighter("Kamala Harris", 158, "5'6\"", "Chicago, Il"),
 
-                        new Fighter("The Primegan", 158, "5'9"),
-                        new Fighter("Kenny Wilson", 158, "5'9"),
-                        new Fighter("Coi Leray", 158, "5'10"),
-                        new Fighter("Morgan Freeman", 158, "5'5")
+                        new Fighter("The Primegan", 158, "5'9\"", "Chicago, Il"),
+                        new Fighter("Kenny Wilson", 158, "5'9\"", "Chicago, Il"),
+                        new Fighter("Coi Leray", 158, "5'10\"", "Chicago, Il"),
+                        new Fighter("Morgan Freeman", 158, "5'5\"", "Chicago, Il")
                 )
         );
 
@@ -52,7 +52,6 @@ public class Main {
                         new Judge("Judge 3")
                 )
         );
-
         //tournament structure
         new Tournament(westConference, eastConference, judges, new StatisticsAndOutcomes()).runTournament();
     }
