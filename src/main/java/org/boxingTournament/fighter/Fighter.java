@@ -8,6 +8,7 @@ import java.util.UUID;
 public class Fighter {
     private final UUID id;
     private final String fullName;
+    private final String birthPlace;
     private final int lbs;
     private final String height;
     private final FightersRecord fightersRecord;
@@ -17,7 +18,8 @@ public class Fighter {
     public Fighter(
             String fullName,
             int lbs,
-            String height
+            String height,
+            String birthPlace
     ) {
         this.id = UUID.randomUUID();
         this.fullName = fullName;
@@ -26,6 +28,7 @@ public class Fighter {
         this.fightersRecord = new FightersRecord();
         this.tournamentLevel = TournamentLevel.ROUND_OF_16.toString();
         this.tournamentStatus = TournamentStatus.ACTIVE.toString();
+        this.birthPlace = birthPlace;
     }
 
     public String getFullName() {
@@ -50,6 +53,18 @@ public class Fighter {
 
     public void setTournamentStatus(String tournamentStatus) {
         this.tournamentStatus = tournamentStatus;
+    }
+
+    public String getBirthPlace() {
+        return birthPlace;
+    }
+
+    public int getLbs() {
+        return lbs;
+    }
+
+    public String getHeight() {
+        return height;
     }
 
     public void addWin() {
