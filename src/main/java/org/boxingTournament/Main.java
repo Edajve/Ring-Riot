@@ -22,21 +22,17 @@ public class Main {
                 )
         );
 
-        /**
-         * TODO start filling out real boxers with their real data
-         */
         //east fighters
         List<Fighter> eastFighters = new ArrayList<>(
                 List.of(
-                        new Fighter("Mike Bibby", 158, "5'9\"", "Chicago, Il"),
-                        new Fighter("Kerry Alis", 158, "5'9\"", "Chicago, Il"),
-                        new Fighter("Lonzo Ball", 158, "5'8\"", "Chicago, Il"),
-                        new Fighter("Kamala Harris", 158, "5'6\"", "Chicago, Il"),
-
-                        new Fighter("The Primegan", 158, "5'9\"", "Chicago, Il"),
-                        new Fighter("Kenny Wilson", 158, "5'9\"", "Chicago, Il"),
-                        new Fighter("Coi Leray", 158, "5'10\"", "Chicago, Il"),
-                        new Fighter("Morgan Freeman", 158, "5'5\"", "Chicago, Il")
+                        new Fighter("Gervonta Davis", 135, "5'5\"", "Baltimore, MD"),
+                        new Fighter("Shakur Stevenson", 135, "5'8\"", "Newark, NJ"),
+                        new Fighter("Devin Haney", 115, "5'9\"", "San Francisco, CA"),
+                        new Fighter("Vasily Lomachenko", 135, "5'7\"", "Bihorod-Dnistrovs\'Kyi, Ukraine"),
+                        new Fighter("Isac Cruz", 135, "5'5\"", "Mexico City, Mexico"),
+                        new Fighter("Ryan Garcia", 135, "5'11\"", "Los Alamitos, CA"),
+                        new Fighter("Gustavo Daniel Lemos", 135, "5'5\"", "Tres Arroyos, Arentina"),
+                        new Fighter("George Kambosos Jr ", 135, "5'9\"", "Sydney, Australia")
                 )
         );
 

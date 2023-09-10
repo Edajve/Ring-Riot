@@ -38,8 +38,7 @@ public class Tournament {
                 westernConferenceWinner,
                 this.judges,
                 this.statisticsAndOutcomes).runMatch();
-
-        System.out.println(ultimateChampion);
+        ExportToTxt.log("Winner is " + ultimateChampion.getFullName() + "!");
     }
 
     /**

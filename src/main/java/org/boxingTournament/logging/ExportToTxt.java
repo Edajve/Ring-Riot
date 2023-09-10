@@ -13,7 +13,6 @@ public class ExportToTxt {
     private static final String textFilePath = rootProjectPath + "/exports/Results.txt";
 
     public static void log(String text) {
-
         try (FileOutputStream stream = new FileOutputStream(textFilePath, true)) {
             byte[] bytes = text.getBytes();
             stream.write(bytes);
@@ -44,12 +43,12 @@ public class ExportToTxt {
         } catch (IOException e) {
             e.fillInStackTrace();
         }
-        System.out.println("Written to file");
     }
 
     public static void logIntro() {
         log("Starting tournament..");
     }
+
     public static void logOutro() {
         log("Tournament over :)");
     }
