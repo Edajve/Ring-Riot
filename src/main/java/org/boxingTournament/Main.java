@@ -15,10 +15,14 @@ public class Main {
         //west fighters
         List<Fighter> westFighters = new ArrayList<>(
                 List.of(
-                        new Fighter("The Primegan", 158, "5'9\"", "Chicago, Il"),
-                        new Fighter("Kenny Wilson", 158, "5'9\"", "Chicago, Il"),
-                        new Fighter("Coi Leray", 158, "5'10\"", "Chicago, Il"),
-                        new Fighter("Morgan Freeman", 158, "5'5\"", "Chicago, Il")
+                        new Fighter("Floyd Mayweather Jr.", 135, "5'8\"", "Grand Rapids, MI"),
+                        new Fighter("Julio César Chávez González", 135, "5'7\"", "Cuidad Orbregon, Mexico"),
+                        new Fighter("Pernell Whitaker", 135, "5'6\"", "Norfolk, VA"),
+                        new Fighter("Reberto Deran Samaneigo", 135, "5'7\"", "El Chorrillo, Panama City, Panama"),
+                        new Fighter("Manny Pacquiao", 135, "5'5\"", "Kibawe, Philippines"),
+                        new Fighter("Oscar De La Hoya", 135, "5'10\"", "East Los Angeles, CA"),
+                        new Fighter("Benny Leonard", 135, "5'5\"", "New York, NY"),
+                        new Fighter("Joe Gans", 135, "5'7\"", "Baltimore, MD")
                 )
         );
 
