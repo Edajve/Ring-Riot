@@ -1,0 +1,72 @@
+ Starting tournament..
+
+East fighters:
+
+Gervonta Davis, 135Lbs, 5'5", Baltimore, MD
+Shakur Stevenson, 135Lbs, 5'8", Newark, NJ
+Devin Haney, 115Lbs, 5'9", San Francisco, CA
+Vasily Lomachenko, 135Lbs, 5'7", Bihorod-Dnistrovs'Kyi, Ukraine
+Isac Cruz, 135Lbs, 5'5", Mexico City, Mexico
+Ryan Garcia, 135Lbs, 5'11", Los Alamitos, CA
+Gustavo Daniel Lemos, 135Lbs, 5'5", Tres Arroyos, Arentina
+George Kambosos Jr, 135Lbs, 5'9", Sydney, Australia
+
+Fight between George Kambosos Jr & Gervonta Davis is starting
+
+Fight between George Kambosos Jr & Gervonta Davis resulted in a draw
+
+Winner of match is George Kambosos Jr!
+
+Fight between Gustavo Daniel Lemos & Shakur Stevenson is starting
+
+Fight between Gustavo Daniel Lemos & Shakur Stevenson resulted in a draw
+
+Winner of match is Gustavo Daniel Lemos!
+
+Fight between Ryan Garcia & Devin Haney is starting
+
+Winner of match is Devin Haney!
+
+Fight between Isac Cruz & Vasily Lomachenko is starting
+
+Winner of match is Isac Cruz!
+
+Fight between Isac Cruz & Gustavo Daniel Lemos is starting
+
+Winner of match is Isac Cruz!
+
+Fight between Devin Haney & George Kambosos Jr is starting
+
+Winner of match is Devin Haney!
+
+Fight between Devin Haney & Isac Cruz is starting
+
+Winner of match is Devin Haney!
+
+West fighters:
+
+The Primegan, 158Lbs, 5'9", Chicago, Il
+Kenny Wilson, 158Lbs, 5'9", Chicago, Il
+Coi Leray, 158Lbs, 5'10", Chicago, Il
+Morgan Freeman, 158Lbs, 5'5", Chicago, Il
+
+Fight between Morgan Freeman & The Primegan is starting
+
+Fight between Morgan Freeman & The Primegan resulted in a draw
+
+Winner of match is Morgan Freeman!
+
+Fight between Coi Leray & Kenny Wilson is starting
+
+Winner of match is Kenny Wilson!
+
+Fight between Kenny Wilson & Morgan Freeman is starting
+
+Winner of match is Kenny Wilson!
+
+Fight between Devin Haney & Kenny Wilson is starting
+
+Winner of match is Devin Haney!
+
+Winner is Devin Haney!
+

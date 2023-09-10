@@ -30,6 +30,7 @@ public class Tournament {
     }
 
     public void runTournament() throws Exception {
+        ExportToTxt.clearFromLastMatch();
         ExportToTxt.logIntro();
         Fighter easternConferenceWinner = runConference(this.eastConference);
         Fighter westernConferenceWinner = runConference(this.westConference);

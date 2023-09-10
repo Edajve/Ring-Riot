@@ -32,7 +32,7 @@ public class Main {
                         new Fighter("Isac Cruz", 135, "5'5\"", "Mexico City, Mexico"),
                         new Fighter("Ryan Garcia", 135, "5'11\"", "Los Alamitos, CA"),
                         new Fighter("Gustavo Daniel Lemos", 135, "5'5\"", "Tres Arroyos, Arentina"),
-                        new Fighter("George Kambosos Jr ", 135, "5'9\"", "Sydney, Australia")
+                        new Fighter("George Kambosos Jr", 135, "5'9\"", "Sydney, Australia")
                 )
         );
 

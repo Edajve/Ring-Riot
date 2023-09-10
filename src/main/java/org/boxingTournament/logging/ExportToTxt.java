@@ -17,7 +17,15 @@ public class ExportToTxt {
             byte[] bytes = text.getBytes();
             stream.write(bytes);
             stream.write("\n\n".getBytes());
-            System.out.println("Written to file");
+        } catch (IOException e) {
+            e.fillInStackTrace();
+        }
+    }
+
+    public static void clearFromLastMatch() {
+        try (FileOutputStream stream = new FileOutputStream(textFilePath)) {
+            byte[] bytes = " ".getBytes();
+            stream.write(bytes);
         } catch (IOException e) {
             e.fillInStackTrace();
         }
