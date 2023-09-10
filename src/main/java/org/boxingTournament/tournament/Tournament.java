@@ -47,7 +47,8 @@ public class Tournament {
      * @param conference takes type Conference
      */
     public Fighter runConference(Conference conference) throws Exception {
-        ExportToTxt.log("Run tournament in " + conference.toString());
+        ExportToTxt.logConferenceFighters(conference);
+
         List<Fighter> startingFighters = conference.getConferenceFighters();
         List<Fighter> nextRounder = new LinkedList<>();
 
@@ -104,6 +105,6 @@ public class Tournament {
 
     @Override
     public String toString() {
-        return "Tournament{" + "aSide=" + westConference + ", bSide=" + eastConference + '}';
+        return "{" + "aSide=" + westConference + ", bSide=" + eastConference + '}';
     }
 }
