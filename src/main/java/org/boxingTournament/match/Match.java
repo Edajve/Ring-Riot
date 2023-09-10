@@ -5,6 +5,7 @@ import org.boxingTournament.enums.TournamentLevel;
 import org.boxingTournament.enums.TournamentStatus;
 import org.boxingTournament.fighter.Fighter;
 import org.boxingTournament.judges.Judge;
+import org.boxingTournament.logging.ExportToTxt;
 
 import java.util.*;
 
@@ -22,6 +23,7 @@ public class Match {
     }
 
     public Fighter runMatch() throws Exception {
+        ExportToTxt.log("Fight between " + fighterA.getFullName() + " & " + fighterB.getFullName() + " is starting");
         Fighter winner = null;
 
         while (winner == null) {
@@ -40,9 +42,13 @@ public class Match {
 
             Optional<Fighter> resultOfBout = resultOfMatchBetweenJudges(listOfTheWinnerPerEachJudge);
             updateRecords(resultOfBout);
-            if (resultOfBout.isPresent()) winner = resultOfBout.get();
+            if (resultOfBout.isPresent()) {
+                winner = resultOfBout.get();
+                ExportToTxt.log("Winner of match is " + winner.getFullName() + "!");
+            } else {
+                ExportToTxt.log("Fight between " + fighterA.getFullName() + " & " + fighterB.getFullName() + " resulted in a draw");
+            }
         }
-
         return winner;
     }
 
